@@ -29,13 +29,23 @@ public class RewardPointsController {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         LocalDate localDate = LocalDate.of(2025,2,13);
 
+        //Ravi :: March:0points , Feb: 90 points , Jan : 90 + 50 (140 points)
+        //Suresh :: Feb : 0 points
         List<CustomerTransaction> customerTransactionLits =
-                    List.of(new CustomerTransaction(null,"Ravi",120L,
+                    List.of(new CustomerTransaction(null,"Ravi",40L,
+                                    simpleDateFormat.parse(LocalDate.of(2025,3,14).toString())),
+                            new CustomerTransaction(null,"Ravi",120L,
                                     simpleDateFormat.parse(LocalDate.of(2025,2,13).toString())),
-                            new CustomerTransaction(null,"Suresh",50L,
-                                    simpleDateFormat.parse(LocalDate.of(2025,2,13).toString())),
+                            new CustomerTransaction(null,"Ravi",20L,
+                                    simpleDateFormat.parse(LocalDate.of(2025,2,14).toString())),
                             new CustomerTransaction(null,"Ravi",100L,
-                                    simpleDateFormat.parse(LocalDate.of(2025,1,13).toString())));
+                                    simpleDateFormat.parse(LocalDate.of(2025,1,13).toString())),
+                            new CustomerTransaction(null,"Ravi",120L,
+                                    simpleDateFormat.parse(LocalDate.of(2025,1,14).toString())),
+
+                            new CustomerTransaction(null,"Suresh",50L,
+                                    simpleDateFormat.parse(LocalDate.of(2025,2,13).toString()))
+                            );
 
         customerTransactionRepository.saveAll(customerTransactionLits);
     }
